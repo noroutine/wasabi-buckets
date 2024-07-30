@@ -18,6 +18,6 @@ terraform {
 provider "wasabi" {
   access_key = var.wasabi_access_key
   secret_key = var.wasabi_secret_key
-  region     = "us-east-1"
+  region     = var.wasabi_region
 }
 

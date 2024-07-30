@@ -1,6 +1,48 @@
 # This file is maintained automatically by "terraform init".
 # Manual edits may be lost in future updates.
 
+provider "registry.terraform.io/dza89/wasabi" {
+  version     = "4.2.0"
+  constraints = "4.2.0"
+  hashes = [
+    "h1:NbGJmttYWWnCUKr1VrByNmvy3HXYuv1hEd58AwUfvao=",
+    "zh:1471c9b6a6f47b820bdba9f5e5cc3f7479117f7d0d5821733f4e05f077e6e620",
+    "zh:1f760757f04cc83bf2989d801fe385f27739323ddaeaefbead989368b1ea004d",
+    "zh:278037f762b341bf22cbf3318f1c79f36398971b868adf3b81d26ced5470b5e0",
+    "zh:279b1e2aa63cedfd6e1a9db54e370a07d3934f7904fe2b9ff976736b523ec956",
+    "zh:7d72d80ed158aa16aec66077fa637a7c7850d42a72c19f749d423274bbba4d7e",
+    "zh:8cdb58d11e9f094d8c0526e3e613c6f9016d1149c645f37278de83cea1ff7dd9",
+    "zh:8eb8eb8c3cb29ec71468e926ec2589aa16c479a83de1500cb5fcfd727b49b96a",
+    "zh:9a5c445fede5ccf50003b6d0ed0c48c52521305f8dba03391039c90917b3f295",
+    "zh:9b02ba465840508f1760874a7b3952abcbfba6729ab4632ae15d90f92b34b804",
+    "zh:cbf1db50d7d3040381c6b5cb1a26245e6fb8ccb4add5b0257139d265dc955ea5",
+    "zh:e0298c3a20dd02bc816b3c945de4cc41ba18f9018f5825e6df7ade6fa1a60672",
+    "zh:ea33f8f8e5d0a9a43f26980afa0fc4cf9c174e4f1ad88043beb5ee6e5ec57ade",
+    "zh:f15b21fb3cca6a081e650d845209af3a297637522764d77e26d609111de607e2",
+    "zh:f56045e06f3c62f7a02b787eb4d34b4f10440f99009e8884800f077233d1485e",
+    "zh:f6d1262d6606c9680f7ac625dd4b2d5b9f425da68cb9a32d84b53996e77fd334",
+  ]
+}
+
+provider "registry.terraform.io/hashicorp/random" {
+  version = "3.6.2"
+  hashes = [
+    "h1:R5qdQjKzOU16TziCN1vR3Exr/B+8WGK80glLTT4ZCPk=",
+    "zh:0ef01a4f81147b32c1bea3429974d4d104bbc4be2ba3cfa667031a8183ef88ec",
+    "zh:1bcd2d8161e89e39886119965ef0f37fcce2da9c1aca34263dd3002ba05fcb53",
+    "zh:37c75d15e9514556a5f4ed02e1548aaa95c0ecd6ff9af1119ac905144c70c114",
+    "zh:4210550a767226976bc7e57d988b9ce48f4411fa8a60cd74a6b246baf7589dad",
+    "zh:562007382520cd4baa7320f35e1370ffe84e46ed4e2071fdc7e4b1a9b1f8ae9b",
+    "zh:5efb9da90f665e43f22c2e13e0ce48e86cae2d960aaf1abf721b497f32025916",
+    "zh:6f71257a6b1218d02a573fc9bff0657410404fb2ef23bc66ae8cd968f98d5ff6",
+    "zh:78d5eefdd9e494defcb3c68d282b8f96630502cac21d1ea161f53cfe9bb483b3",
+    "zh:9647e18f221380a85f2f0ab387c68fdafd58af6193a932417299cdcae4710150",
+    "zh:bb6297ce412c3c2fa9fec726114e5e0508dd2638cad6a0cb433194930c97a544",
+    "zh:f83e925ed73ff8a5ef6e3608ad9225baa5376446349572c2449c0c0b3cf184b7",
+    "zh:fbef0781cb64de76b1df1ca11078aecba7800d82fd4a956302734999cfd9a4af",
+  ]
+}
+
 provider "registry.terraform.io/terrabitz/wasabi" {
   version     = "4.1.3"
   constraints = "4.1.3"

@@ -9,3 +9,8 @@ variable "wasabi_secret_key" {
   type      = string
   sensitive = true
 }
+
+variable "wasabi_region" {
+  type    = string
+  default = "eu-central-1"
+}
