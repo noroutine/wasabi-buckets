@@ -100,20 +100,21 @@ resource "local_file" "test" {
 }
 
 resource "wasabi_bucket_policy" "bucket_policy" {
-  for_each = local.buckets
-  bucket   = "${resource.random_string.prefix.result}-${each.value.name}"
+  for_each   = local.buckets
+  depends_on = [wasabi_bucket.bucket]
+  bucket     = "${resource.random_string.prefix.result}-${each.value.name}"
   policy = jsonencode({
     "Version" : "2012-10-17",
     "Statement" : [
-      templatefile("${path.module}/readonly_policy_statement.json.tftpl", {
+      jsondecode(templatefile("${path.module}/readonly_policy_statement.json.tftpl", {
         bucket = "${resource.random_string.prefix.result}-${each.value.name}",
         arns   = each.value.readonly,
-      })
+      }))
       ,
-      templatefile("${path.module}/readwrite_policy_statement.json.tftpl", {
+      jsondecode(templatefile("${path.module}/readwrite_policy_statement.json.tftpl", {
         bucket = "${resource.random_string.prefix.result}-${each.value.name}",
         arns   = each.value.readwrite
-      })
+      }))
     ]
   })
 }
