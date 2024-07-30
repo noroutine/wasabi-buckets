@@ -32,12 +32,10 @@ jobs:
     - name: Backend Configuration
       run: |
         echo ${BACKEND_CONF} | base64 -d > .backend.conf
-        cat << SECRETS_VARS > .secrets.tfvars
-        wasabi_access_key = "${{ secrets.WASABI_ACCESS_KEY }}"
-        wasabi_secret_key = "${{ secrets.WASABI_SECRET_KEY }}"
-        SECRETS_VARS
+        echo ${SECRETS_TFVARS} | base64 -d > .secrets.tfvars
       env:
         BACKEND_CONF: ${{ secrets.BACKEND_CONF }}
+        SECRETS_TFVARS: ${{ secrets.SECRETS_TFVARS }}
 
     - name: Terraform Init
       run: terraform init -backend-config=.backend.conf
