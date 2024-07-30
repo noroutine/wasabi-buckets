@@ -79,18 +79,38 @@ resource "wasabi_bucket" "bucket" {
   force_destroy = true
 }
 
+resource "local_file" "test" {
+  for_each = local.buckets
+  content = jsonencode({
+    "Version" : "2012-10-17",
+    "Statement" : [
+      jsondecode(templatefile("${path.module}/readonly_policy_statement.json.tftpl", {
+        bucket = "${resource.random_string.prefix.result}-${each.value.name}",
+        arns   = each.value.readonly,
+      }))
+      ,
+      jsondecode(templatefile("${path.module}/readwrite_policy_statement.json.tftpl", {
+        bucket = "${resource.random_string.prefix.result}-${each.value.name}",
+        arns   = each.value.readwrite
+      }))
+    ]
+  })
+
+  filename = "${each.value.name}.json"
+}
+
 resource "wasabi_bucket_policy" "bucket_policy" {
   for_each = local.buckets
   bucket   = "${resource.random_string.prefix.result}-${each.value.name}"
   policy = jsonencode({
     "Version" : "2012-10-17",
     "Statement" : [
-      templatefile("${path.module}/readonly_policy_statement.json.tpl", {
+      templatefile("${path.module}/readonly_policy_statement.json.tftpl", {
         bucket = "${resource.random_string.prefix.result}-${each.value.name}",
         arns   = each.value.readonly,
       })
       ,
-      templatefile("${path.module}/readwrite_policy_statement.json.tpl", {
+      templatefile("${path.module}/readwrite_policy_statement.json.tftpl", {
         bucket = "${resource.random_string.prefix.result}-${each.value.name}",
         arns   = each.value.readwrite
       })

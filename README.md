@@ -67,3 +67,26 @@ caused by: Post "https://iam.eu-central-1.wasabisys.com/": dial tcp 52.29.34.190
 │   34: resource "wasabi_bucket" "bucket" {
 │
 ```
+
+### 3 
+
+Policy працюють в web ui, але тераформ падає наприклад з таким
+
+```
+│ Error: Error putting S3 policy: MalformedPolicy: This policy contains invalid Json
+│ 	status code: 400, request id: D41FE4EB3C26F6DD:B, host id: lPQYBCQ6fbOjgeLCq84aw/g5As3vk1JqlPjs4UnRsyUCGfqZ6YydgUQu37ocQ+6nc/Op8fSkpd2w
+│
+│   with wasabi_bucket_policy.bucket_policy["sales"],
+│   on buckets.tf line 102, in resource "wasabi_bucket_policy" "bucket_policy":
+│  102: resource "wasabi_bucket_policy" "bucket_policy" {
+│
+╵
+╷
+│ Error: Error putting S3 policy: NoSuchBucket: The specified bucket does not exist
+│ 	status code: 404, request id: 5C8CFBBA8954F2E6:B, host id: /Rb089g2i/4/hcbJAvPHfDDOVg9m35XzbmfVJYeToAFF3zQB6j6qIG53Wg7Ybvk+n3RdEMR4dHmv
+│
+│   with wasabi_bucket_policy.bucket_policy["marketing"],
+│   on buckets.tf line 102, in resource "wasabi_bucket_policy" "bucket_policy":
+│  102: resource "wasabi_bucket_policy" "bucket_policy" {
+│
+```
