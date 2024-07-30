@@ -68,6 +68,34 @@ caused by: Post "https://iam.eu-central-1.wasabisys.com/": dial tcp 52.29.34.190
 │
 ```
 
+
+```
+-----------------------------------------------------: timestamp=2024-07-30T21:20:32.226+0200
+2024-07-30T21:20:32.805+0200 [INFO]  provider.terraform-provider-wasabi_v4.2.0: 2024/07/30 21:20:32 [DEBUG] [aws-sdk-go] DEBUG: Response s3/HeadBucket Details:
+---[ RESPONSE ]--------------------------------------
+HTTP/1.1 403 Forbidden
+Connection: close
+Content-Type: application/xml
+Date: Tue, 30 Jul 2024 19:20:32 GMT
+Server: WasabiS3/7.20.2951-2024-06-14-7fcea49969 (R401-U28)
+X-Amz-Id-2: ******
+X-Amz-Request-Id: 5A967528CBC8853F:B
+X-Wasabi-Cm-Reference-Id: 1722367232582 38.91.42.103 ConID:970613190/EngineConID:8763175/Core:29
+
+
+-----------------------------------------------------: timestamp=2024-07-30T21:20:32.805+0200
+2024-07-30T21:20:32.805+0200 [INFO]  provider.terraform-provider-wasabi_v4.2.0: 2024/07/30 21:20:32 [DEBUG] [aws-sdk-go]: timestamp=2024-07-30T21:20:32.805+0200
+2024-07-30T21:20:32.805+0200 [INFO]  provider.terraform-provider-wasabi_v4.2.0: 2024/07/30 21:20:32 [DEBUG] [aws-sdk-go] DEBUG: Validate Response s3/HeadBucket failed, attempt 0/25, error Forbidden: Forbidden
+	status code: 403, request id: 5A967528CBC8853F:B, host id: OP0FK2ThO177WqS6oqs9LnfcHtmgVFV8v/0R+4evRC7i+u+QMjLkr+yHcUUs4FnJw8jq0KL9v/ab: timestamp=2024-07-30T21:20:32.805+0200
+2024-07-30T21:20:32.806+0200 [ERROR] vertex "wasabi_bucket.bucket[\"marketing\"]" error: error getting S3 Bucket location: Forbidden: Forbidden
+	status code: 403, request id: 5A967528CBC8853F:B, host id: OP0FK2ThO177WqS6oqs9LnfcHtmgVFV8v/0R+4evRC7i+u+QMjLkr+yHcUUs4FnJw8jq0KL9v/ab
+2024-07-30T21:20:32.806+0200 [ERROR] vertex "wasabi_bucket.bucket (expand)" error: error getting S3 Bucket location: Forbidden: Forbidden
+	status code: 403, request id: 5A967528CBC8853F:B, host id: OP0FK2ThO177WqS6oqs9LnfcHtmgVFV8v/0R+4evRC7i+u+QMjLkr+yHcUUs4FnJw8jq0KL9v/ab
+2024-07-30T21:20:32.807+0200 [DEBUG] provider.stdio: received EOF, stopping recv loop: err="rpc error: code = Unavailable desc = error reading from server: EOF"
+2024-07-30T21:20:32.809+0200 [DEBUG] provider: plugin process exited: path=.terraform/providers/registry.terraform.io/hashicorp/local/2.5.1/darwin_amd64/terraform-provider-local_v2.5.1_x5 pid=52496
+2024-07-30T21:20:32.809+0200 [DEBUG] provider: plugin exited
+2024-07-30T21:20:32.809+0200 [INFO]  backend/local: plan operation completed
+```
 ### 3 
 
 Policy працюють в web ui, але тераформ падає наприклад з таким

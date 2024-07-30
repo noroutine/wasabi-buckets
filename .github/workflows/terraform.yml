@@ -28,6 +28,11 @@ jobs:
         # Pin version, 1.6.0+ breaks for some reason
         terraform_version: "1.5.7"
 
+    # Pin wasabi IP
+    - name: Add hosts to /etc/hosts
+      run: |
+          sudo echo "38.27.106.23 s3.us-east-1.wasabisys.com" | sudo tee -a /etc/hosts
+
     # Get backend.conf
     - name: Backend Configuration
       run: |
