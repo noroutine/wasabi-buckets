@@ -22,36 +22,36 @@ locals {
         "${local.user_arn_prefix}/bob",
       ]
     }
-    # engineering = {
-    #   name = "engineering-data-bucket"
-    #   readonly = [
-    #     "${local.user_arn_prefix}/alice",
-    #     "${local.user_arn_prefix}/backup",
-    #   ]
-    #   readwrite = [
-    #     "${local.user_arn_prefix}/bob",
-    #   ]
-    # }
-    # finance = {
-    #   name = "finance-data-bucket"
-    #   readonly = [
-    #     "${local.user_arn_prefix}/charlie",
-    #     "${local.user_arn_prefix}/backup",
-    #   ]
-    #   readwrite = [
-    #     "${local.user_arn_prefix}/bob",
-    #   ]
-    # }
-    # operations = {
-    #   name = "operations-data-bucket"
-    #   readonly = [
-    #     "${local.user_arn_prefix}/backup",
-    #   ]
-    #   readwrite = [
-    #     "${local.user_arn_prefix}/bob",
-    #     "${local.user_arn_prefix}/charlie",
-    #   ]
-    # }
+    engineering = {
+      name = "engineering-data-bucket"
+      readonly = [
+        "${local.user_arn_prefix}/alice",
+        "${local.user_arn_prefix}/backup",
+      ]
+      readwrite = [
+        "${local.user_arn_prefix}/bob",
+      ]
+    }
+    finance = {
+      name = "finance-data-bucket"
+      readonly = [
+        "${local.user_arn_prefix}/charlie",
+        "${local.user_arn_prefix}/backup",
+      ]
+      readwrite = [
+        "${local.user_arn_prefix}/bob",
+      ]
+    }
+    operations = {
+      name = "operations-data-bucket"
+      readonly = [
+        "${local.user_arn_prefix}/backup",
+      ]
+      readwrite = [
+        "${local.user_arn_prefix}/bob",
+        "${local.user_arn_prefix}/charlie",
+      ]
+    }
 
   }
 
