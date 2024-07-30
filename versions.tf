@@ -7,8 +7,8 @@ terraform {
 
   required_providers {
     wasabi = {
-      source  = "terrabitz/wasabi"
-      version = "4.1.3"
+      source  = "dza89/wasabi"
+      version = "4.2.0"
     }
   }
   required_version = ">= 0.13"
