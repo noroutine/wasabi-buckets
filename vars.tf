@@ -12,5 +12,5 @@ variable "wasabi_secret_key" {
 
 variable "wasabi_region" {
   type    = string
-  default = "eu-central-1"
+  default = "us-central-1"
 }
